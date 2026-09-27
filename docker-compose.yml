@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  mindnest-app:
+    build: .
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+      - NODE_ENV=production
+      - JWT_SECRET=production-secret-mindnest-2026
+    restart: always

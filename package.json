@@ -1,0 +1,17 @@
+{
+  "name": "aurablog-platform",
+  "version": "1.0.0",
+  "description": "Full-stack user-specific blogging platform with React, Express, MongoDB, JWT auth, Markdown authoring, comments, and likes.",
+  "main": "backend/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev:backend": "node --watch backend/server.js",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": ["blog", "react", "express", "mongodb", "markdown", "jwt"],
+  "author": "",
+  "license": "MIT"
+}

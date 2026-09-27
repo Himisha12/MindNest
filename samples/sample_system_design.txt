@@ -1,0 +1,25 @@
+Title: System Design Principles for High Throughput Microservices
+Subtitle: Designing event-driven architectures with Express, Redis caching, and MongoDB aggregation.
+Tags: nodejs, mongodb, technology, backend
+
+High-throughput distributed systems require architectural patterns that prevent bottlenecks, maintain low response latency, and scale horizontally under sudden spikes in traffic.
+
+Core Principles of High-Performance Systems:
+
+1. Asynchronous I/O Execution: Keep the Node.js event loop completely free of CPU-intensive synchronous operations.
+2. Multi-Layered Caching Strategy: Serve hot data paths directly from Redis in-memory caches before querying database indexes.
+3. Database Sharding & Indexing: Utilize compound indexes and database read replicas to distribute read workloads evenly.
+
+Example Express Latency Tracking Middleware:
+
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    console.log(`${req.method} ${req.originalUrl} - ${duration}ms`);
+  });
+  next();
+});
+
+Summary:
+Applying decoupled event-driven messaging and multi-tier caching guarantees high uptime and instant response times under heavy user concurrency.
